@@ -10,7 +10,7 @@ Aplicatia, in prima sa versiune, va prezenta o varietate de functii precum:
 5. Gestionarea orarului activitatilor
 6. Modificarea activitatii din lista de activitati
 
-Design-ul este in stadiul de dezvoltare și, probabil, va varia din versiune in versiune. Acum, este clar că interfata principala la baza ei va avea un tabel la care pe axa x vor fi pozitionate zilele saptamanei, respectiv pe axa y orele zilei. In tabel vor fi afisate activitatile în ziua si ora(orele) respectiva.
+Design-ul este in stadiul de dezvoltare și, probabil, va varia din versiune in versiune. Totusi, este clar că interfata principala la baza ei va avea un tabel la care pe axa x vor fi pozitionate zilele saptamanei, respectiv pe axa y orele zilei. In tabel vor fi afisate activitatile în ziua si ora(orele) respectiva. Butoanele vor fi pozitionate intr-o bara, aliniata sus sau pe una dintre partile stanga sau dreapta.
 
 Obiectivele pentru **versiunea beta**(versiunea consola):
 **in stadiul de dezvoltare**
