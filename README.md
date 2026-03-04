@@ -1,5 +1,5 @@
 # Proiect-PIU
-##Proiect la PIU, Aplicatie "*Orar personal*" 2026
+## Proiect la PIU, Aplicatie "*Orar personal*" 2026
 
 Proiectul consta in realizarea unei aplicatii de planificare a saptamanei.
 Aplicatia, in prima sa versiune, va prezenta o varietate de functii precum:
