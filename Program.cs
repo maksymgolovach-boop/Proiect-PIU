@@ -63,7 +63,7 @@ class Calendar
         nrOre = _nrOre;  //setam pasul de ore custom va fi ales dintre 15min, 30min si 1h
         calendar = new string[nrOre,7];
 
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 7; i++) // umplem matrice cu caractere implicite
         {
             for (int j = 0; j < nrOre; j++)
             {
@@ -73,10 +73,10 @@ class Calendar
     }
     public Calendar()
     {
-        nrOre = 48; // setam pasul de ore default pe 30 de min
+        nrOre = 48; // setam pasul de ore default de 30 de min
         calendar = new string[nrOre, 7];
         
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 7; i++) // umplem matrice cu caractere implicite
         {
             for (int j = 0; j < nrOre; j++)
             {
@@ -125,22 +125,22 @@ class Calendar
         return -1; //daca activiatea nu s-a gasit returnam -1
     }
 
-    public void AddActivityinCalendar(Activitate activity, float start_time, float stop_time, int zi)
+    public void AddActivityinCalendar(Activitate activity, float start_time, float stop_time, int zi) // Adaugam activitatea creata in calendar
     {
         int pos_start, pos_stop;
         int pas_ora = Convert.ToInt32((24.0f / nrOre) * 60);
-        int startminute = Convert.ToInt32(start_time) * 60 + Convert.ToInt32((start_time % 1) * 100);
-        int stopminute = Convert.ToInt32(stop_time) * 60 + Convert.ToInt32((stop_time % 1) * 100);
-        pos_start = (startminute / pas_ora);
-        pos_stop = (stopminute / pas_ora);
+        int startminute = Convert.ToInt32(start_time) * 60 + Convert.ToInt32((start_time % 1) * 100); // calculam ora inceput a activitatii in minute
+        int stopminute = Convert.ToInt32(stop_time) * 60 + Convert.ToInt32((stop_time % 1) * 100); // calculam ora de sfarsit a activitatii in minute
+        pos_start = (startminute / pas_ora); // calculam pozitia in matrice a orei de inceput
+        pos_stop = (stopminute / pas_ora); // calculam pozitia in matrice a orei de sfarsit
 
         for (int i = pos_start; i < pos_stop+1; i++)
         {
-            this.calendar[i, zi] = activity.GetName();
+            this.calendar[i, zi] = activity.GetName(); // setam in calendar activitatea
         }
     }
 
-    public string showALL()
+    public string showALL() // arata calendarul in forma desfasurata
     {
         string calendar_str="";
         string linie = "";   
@@ -153,7 +153,7 @@ class Calendar
             for (int j = 0; j < this.nrOre; j++)
             {
                 
-                ora = (j * pas_ora) / 60;
+                ora = (j * pas_ora) / 60; // traducem pozitiia din matrice in ore si minuta pentru afisare corecta
                 minuta = (j * pas_ora) % 60;
                 linie += $"{ora:D2}:{minuta:D2} ";
                 linie += this.calendar[j, i] + '\n';
@@ -173,11 +173,12 @@ public class ProjectPIU
     public static void Main(string[] args)
     {
         Calendar c1 = new Calendar();
-        Activitate a1 = new Activitate("Scoala", "Activitatea de studiu la USV", "Invatamant");
-
-        c1.AddActivityinCalendar(a1, 8.15f, 14.30f, 0);
-        c1.AddActivityinCalendar(a1, 10.45f, 16f, 1);
-        c1.AddActivityinCalendar(a1, 13.15f, 18.20f, 2);
+        Activitate a1 = new Activitate("Scoala", "Activitatea de studiu la USV", "Invatamant"); 
+        
+        //setam activitatea la ore
+        c1.AddActivityinCalendar(a1, 8f, 14.30f, 0);
+        c1.AddActivityinCalendar(a1, 10.30f, 16f, 1);
+        c1.AddActivityinCalendar(a1, 13f, 18.30f, 2);
         c1.AddActivityinCalendar(a1, 10f, 17.30f, 3);
 
         Console.WriteLine(c1.showALL());
@@ -185,3 +186,4 @@ public class ProjectPIU
         Console.ReadKey();
     }
 }
+
